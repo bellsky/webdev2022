@@ -9,6 +9,6 @@
     git commit의 hash와 master branch, Merge 에 대해 설명하였음.
 
     어떤 코드를 추가하거나 작성하거나 할 때에는 무조건 main이 아니라 
-    branch를 만들어서 해야한다. 기본임.
+    branch를 만들어서 해야한다. git 사용의 기본.
 
     카카오 본사 스페이스닷원 투어(설명회) 진행하였음.
