@@ -1,6 +1,6 @@
 name: bellsky blog
 url: http://bellsky.github.io/webdev2022
-baseurl: /webdev2022/
+baseurl: /docs
 description: Insert tagline here
 
 permalink: /themes/:title/
