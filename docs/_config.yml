@@ -1,6 +1,6 @@
 name: Jekyll Themes
 url: http://bellsky.github.io/webdev2022
-baseurl: /webdev/docs
+baseurl: /webdev2022/docs
 description: Insert tagline here
 
 permalink: /themes/:title/
