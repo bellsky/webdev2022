@@ -1,0 +1,108 @@
+20221019 study
+
+
+-프로그래밍언어론 
+    -컴파일러 자동화 도구
+    compiler Generating Tools
+    =Compiler-compiler = Translator Writing System
+
+        -Language와 machine이 발달할수록 많은 Compiler가 필요하다.
+        새로운 언어를 개발하는 이유? 컴퓨터의 응용 분야가 넓어지기 때문이다.
+
+        -N개의 언어를 M개의 컴퓨터에서 구현하려면? N*M개의 컴파일러가 필요하다.
+
+    -Compiler-compiler Model
+
+        Language description은 grammar theory를 이용하고 있으나, machine description은 정형화가 일워져 있지 않은 상태이다.
+        machine architecture와 프로그래밍 언어의 발전에 따라 automatic compiler generation이 연구됨.
+
+        언어정보+기계정보를 넣으면 맞는 컴파일러가 나오도록 하는 게 목표
+
+
+
+    -LEX = 어휘분석기
+        :1975년 Lesk씨가 고안.
+        입력 stream에서 정규표현으로 기술된 token들을 찾아내는 프로그램을 작성하는데 유용한 도구.
+
+
+    -Parser Generator (+System = PGS) = 구문분석기
+        :Parsing Table이 메인.
+
+        Stanford PGS
+        Wisconsin PGS
+        YACC (Yet Another Compiler Compiler) 
+
+
+    *LEX와 YACC는 리눅스 기본 내장이다.
+
+
+    -Automatic Code Generation
+        Three aspects 
+            -Machine Description : ISP, ISPS, HDL
+            -Intermediate Language
+            -Code generation algorithm
+        CGA (Code Generation Automator
+            -Pattern matching code generation
+            -Table driven code generation
+
+
+    -Compiler-compiler System
+        PQCC(Production Quality Compiler Compiler System)
+            -카네기-멜론 대학
+            -input으로 언어description고 target machine descriptin을 받아 PQC (Production Quality Compiler) 와 table이 output된다. 
+            -중간 언어로 tree구조인 TCOL을 사용한다.
+            -Pattern Matching Code Generation에 의해 code를 생성함.
+        ACK (Amsterdam Compiler Kit)
+            -Back-end 자동화 도구.
+            -UNCOL 게념에서 출발. (N*M -> n+M)
+            -EM이라는 Abstract Machine Code를 중간 언어로 사용.
+            -Portable Compiler를 만들기에 편리하다.
+
+
+
+    어휘분석 Lexical Analysis (= Lexer = Scanner)
+        -어휘분석?
+            : 컴파일러그룹이 문자의 나열을 개별 토큰으로 만드는 과정을 말한다.
+
+        Token? : 문법적으로 의미 있는 최소 단위.
+            토큰 구성
+            :넘버&밸류 한 쌍. number번호 -> string처리의 효율성을 위해서.
+            밸류 -> 심볼 테이블의 인덱스 번호가 들어간다.
+
+
+
+
+-프로젝트LAB
+
+    오늘 측정 장비 부착 첫날
+    씨어스 Seers 테크놀러지 김진향 제주지사장.
+
+    주제 : [웨어러블 의료기기로 만들어가는 디지털 헬스케어 서비스]
+
+        제품은 체온+심전도가 메인.
+
+        이걸 활용해 환자모니터링+원격진료+의료 인공지능 서비스를 제공함.
+        raw 데이터 전송. 가공 처리는 배터리 최적화를 위해 단말기에서 하지 않음.
+        의료용 측정 장비는 외관보다 기능이 중요하므로 배터리 용량이 부족할 일은 없도록 만들어짐.
+
+    1차 측정은 72시간. 10월 19일 오늘부터 금요일까지.
+    2차 부터는 주 2회가 될지 아니면 7일 단위로 부여할지 모름.
+
+    측정 항목 : 기본(심전도, 체온, 혈액형, 지병), BMI, + 끼니 횟수, 음주 횟수, 운동 여부, 날씨(기온), 수면 시간, 카페인 섭취 횟수,
+    나이, 성별, 걸음 수
+
+
+    *내 측정 코드 jj_pl_t_004
+
+
+
+-소프트웨어개발 및 분석
+
+    프리팹 prefab : 게임 오브젝트의 원본을 간직하고 있는 데이터
+    prefab울 붕어빵 찍듯이 버튼 클릭을 통해 찍어내 보았다.
+
+    prefab 생성 횟수를 카운트하고 해당 횟수를 화면에 onGUI로 표시해보았다.
+    2D 이미지를 화면 구석에 띄워보았다.
+
+    장면 Scene 전환을 해보았다. 
+
