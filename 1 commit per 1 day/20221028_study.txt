@@ -1,0 +1,104 @@
+20221028_study
+
+기초웹개발론
+
+    -Web provider service develop
+        -> CSS
+    Notion : GUI, 클릭 위주
+    Obsidian : 타이프라이팅 위주 
+
+
+    CSS의 필요성? 웹서비스 양식과 데이터를 분리하기 위해서.
+
+    웹개발 학습 사이트
+        -w3school
+        -MDN
+        -w3c
+        -codepen
+        -'구글과 함께 시작하세요'
+
+    CSS = Cascading Style Sheet
+    Cascading=떨어져 내리는.
+    -> 가장 하위의 것이 최종적으로 인식된다.
+    -> 상속된 부모의 스타일을 우선시한다.
+
+    
+    html에 css를 적용하는 방법
+        -inline Style
+        -style 태그 안에
+        -css 외부파일
+
+    css 컬러 표현법
+        -keyword 통해. 자동완성.
+        -16진수 표현. rgb or rgba
+            #FFFFFF , #FFFFFFFF
+            RGB(255,255,255), RGB(255,255,255,1)
+                (1혹은 100%)
+        ->비-미술전공 개발자에게 색상표현은 어려우므로,
+            google에 color palette 검색하여 사용.
+
+    size 표현법
+        -px
+        -%(width,height, 
+        padding과 maring는 둘 다 width기준). font크기는 기본 상속.
+        -em
+        -rem
+        -vh
+        -vw
+        -숫자
+        -deg, turn
+
+    색상, 크기 왜 기타 속성
+        -font
+        -letter-spacing (word-   , white-   )
+        -line-height-text-align
+        -text-decoration
+        -text-transform
+        -direction
+        -border (width, style, color, radius)
+        -background(-color, -image:url(), -position, -repeat)
+        -width
+        -height
+        -position(top, left, bottom, right, z-index)
+        -overflow
+        -float(left, right, none)
+        -margin(top, left, right, bottom)
+        -padding(top,left,right,bottom)
+        -display(hidden,auto)
+
+    reset css
+    
+    상속 제어 방법
+        -inherit = 부모 속성 값 사용
+        -initial = Default 속성 값 사용
+        -unset =부모 속성 존재 시 부모 속성 없으면 Default
+
+    Selector 셀렉터
+        -기본 셀렉터
+            -class name
+            -id name
+            -tag name
+            -전체 셀렉터
+                *
+                Universal Selector
+            -그룹 셀렉터
+             ','로 구분하여 여러 셀렉터에 동일 속성 부여 가능.
+
+        -속성 셀렉터
+            -[data-type='primary']
+            -[data-type]
+            -[href*='example.com']
+            -[href^='https']
+            -[href$='.com']
+
+    -Pseudo Class 
+        : 특수 상황에 대한 CSS 처리.
+        자주 쓰이는 슈도 클래스 속성
+            :link
+            :visited
+            :hover
+            :focus
+            :checked
+            :first-child
+            :last-child
+            :nth-child()
