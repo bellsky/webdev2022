@@ -1,0 +1,15 @@
+20221104_study
+
+-기초웹개발론
+
+    지난 주 CSS 코딩 복습함.
+    옵시디언 매우 좋음. 강추하심.
+
+    앞으로 과제 제출할 때에는 
+    -Create pull request
+    -add issue on pr and close pull request
+    -commit history
+    -codding test successed page
+    -codding test code
+
+    5가지 첨부하여 제출할 것.
