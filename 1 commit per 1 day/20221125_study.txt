@@ -1,0 +1,22 @@
+20221125_study
+
+
+기초웹개발론
+
+    -다시 해보는 스프링부트
+
+        Rest API 활용
+
+        인텔리제이에서.
+
+        https://start.spring.io/ 의 spring initializr 활용.
+
+        jaba&Marven 조합 추천.
+
+        Group은 자신만의 유일한 도메인 사용할 것.
+        나는 io.github.bellsky
+
+        dependency로
+            SpringWeb
+            Thymeleaf 2가지 사용
+
