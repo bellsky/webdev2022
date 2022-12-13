@@ -1,0 +1,57 @@
+20221213_study
+
+정보보안
+
+    특강으로 대체.
+
+    성장하는 빅데이터 시장에 대한 설명,
+    기존 알고리즘의 한계,
+    GPU 연산장치의 성능 한계,
+    빅데이터 처리 전용 연산장치를 통한 성능 증대에 대해 다룸.
+
+    
+        Two cores in Big Data
+        - How to store Big Data
+        - How to compute Big Data
+
+        Google
+        How to store Big Data
+            - GFS
+            - Distributed Systems on non-expensive commodity computers
+        How to compute Big Data
+            - MapReduce
+            - Parallel Computing with non-expensive computers
+
+컴퓨터일반
+
+    강의 기말 분량 요약 정리
+
+    CH.6 자료구조
+        -자료구조 3가지
+        -배열, 인덱스, 스택, 큐, 비선형구조
+
+    CH.7 알고리즘
+        -알고리즘의 제어구조와 순서도, 의사코드
+        -알고리즘 제어구조의 종류
+
+    CH.8 DB와 빅데이터
+        -파일처리 시스템의 문제점
+        -DBMS 개념과 특징
+        -RDBMS 모델
+
+    CH.9 데이터 통신과 네트워크
+        -주요 프로토콜
+        -데이터 전송 방향에 따른 분류
+        -모뎀과 라우터
+        -통신회선의 종류와 특징
+
+    CH.12 멀티미디어
+        -사운드의 구성 요소
+        -3D CG의 표현 방식
+        -VR, AR
+        -비트맵, 벡터
+        
+    CH.13 인공지능
+        -머신러닝, 딥러닝
+        -다층 퍼셉트론
+
