@@ -1,0 +1,85 @@
+20221214_study
+
+금일 강의는 인공지능과 소프트웨어분석및설계.
+
+인공지능은 손가락 마디 이상으로 인한 병원 방문으로 병결.
+
+
+소프트웨어분석및설계
+
+    내일이 시험. 
+    
+    수요일 2시~2시 50분
+    용어문제 위주로 나옴
+    411 414에서.
+    범위는 중간고사~탱크 63p 배운 곳 까지.
+    이론 58 : 코드 42.
+    코드는 start, update, OnCollision, OnTriggered, OnGUI 등 강의자료 위주로.
+
+
+    09. 간단한 게임 설계
+    10. 미니 점핑 게임
+    11. 지형 terrain
+    12. 다트 게임
+    13. 미니 탱크 게임
+
+
+
+        WebGL
+            OpenGL ES 2.0 기반 API 사용. 별도의 플러그인 필요하지 않음.
+            브라우저의 HTML 캔버스에 렌더링해준다.
+
+            WebGL Platform에서 배포하면 크롬 등의 웹브라우저에서 유니티 프로젝트를 배포하여 실행할 수 있다.
+
+
+        계층 구조 = 오브젝트를 다른 오브젝트(혹은 empty)아래 넣는 것
+        Freeze Position/Rotation : Rigidbody의 constraints 구성요소. 축방향 이동/회전을 제한한다.
+
+            스크립트로 조작하기
+                other.transform.GetComponet<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                
+                (Collistion other)
+                이 물체에 충돌한 다른 모든 물체에 대해,
+                FreezePosition  (FreezePositionX, Y, Z)
+                FreezeRotation  (X, Y, Z)
+                FreezeAll
+
+        시간
+
+            Time.deltaTime
+
+
+        입력 받아오기 
+            Input.GetMouseButton(0) -> 좌클릭  1 -> 우클릭 2 -> 휠클릭
+
+                Button = 계속 눌려있는 동안
+                ButtonUp = 버튼이 눌렸다 떼어질 때
+                ButtonDown = 버튼이 눌려진 그 순간
+
+
+        객체 조작하기
+
+            GameObject.GetComponet<Rigidbody>().AddFore(new Vectoer3(float, float, float))
+
+                GameObject = 객체. 보통 해당 물체에 연결된 스크립트의 경우 this. 생략 가능함.
+                
+                GetComponet<> :  < > 연결된 오브젝트의 속성을 가져온다.
+
+                AddForce(Vectoer3)  : Vector3 방향으로 힘을 가해주는 함수. Rigidbody에 속해있다.
+
+
+        객체 정보 받아오기
+
+            this.transform.position.x (x y z)
+                this : 이 객체의
+                transform : 객체의 변환(이동 등)에 대한 정보
+                position/rotation/scale : 3대 transform
+
+        장면 리로드 
+
+            SceneManager.LoadScene("씬 이름")
+
+        
+        화면에 글자 띄우기
+
+            OnGUI() 함수
