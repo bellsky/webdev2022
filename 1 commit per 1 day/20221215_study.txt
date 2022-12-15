@@ -1,0 +1,248 @@
+소분설 기말 정리
+
+    내일이 시험. 
+    
+    수요일 2시~2시 50분
+    용어문제 위주로 나옴
+    411 414에서.
+    범위는 중간고사~탱크 63p 배운 곳 까지.
+    이론 58 : 코드 42.
+    코드는 start, update, OnCollision, OnTriggered, OnGUI 등 강의자료 위주로.
+
+
+    09. 간단한 게임 설계
+    10. 미니 점핑 게임
+    11. 지형 terrain
+    12. 다트 게임
+    13. 미니 탱크 게임
+
+
+
+    9장 내용
+
+        WebGL
+            OpenGL ES 2.0 기반 API 사용. 별도의 플러그인 필요하지 않음.
+            브라우저의 HTML 캔버스에 렌더링해준다.
+
+            WebGL Platform에서 배포하면 크롬 등의 웹브라우저에서 유니티 프로젝트를 배포하여 실행할 수 있다.
+
+
+        계층 구조 = 오브젝트를 다른 오브젝트(혹은 empty)아래 넣는 것
+        Freeze Position/Rotation : Rigidbody의 constraints 구성요소. 축방향 이동/회전을 제한한다.
+
+            스크립트로 조작하기
+                other.transform.GetComponet<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                
+                (Collistion other)
+                이 물체에 충돌한 다른 모든 물체에 대해,
+                FreezePosition  (FreezePositionX, Y, Z)
+                FreezeRotation  (X, Y, Z)
+                FreezeAll
+
+        시간
+
+            Time.deltaTime
+
+
+        입력 받아오기 
+            Input.GetMouseButton(0) -> 좌클릭  1 -> 우클릭 2 -> 휠클릭
+
+                Button = 계속 눌려있는 동안
+                ButtonUp = 버튼이 눌렸다 떼어질 때
+                ButtonDown = 버튼이 눌려진 그 순간
+
+
+        객체 조작하기
+
+            GameObject.GetComponet<Rigidbody>().AddFore(new Vectoer3(float, float, float))
+
+                GameObject = 객체. 보통 해당 물체에 연결된 스크립트의 경우 this. 생략 가능함.
+                
+                GetComponet<> :  < > 연결된 오브젝트의 속성을 가져온다.
+
+                AddForce(Vectoer3)  : Vector3 방향으로 힘을 가해주는 함수. Rigidbody에 속해있다.
+
+
+        객체 정보 받아오기
+
+            this.transform.position.x (x y z)
+                this : 이 객체의
+                transform : 객체의 변환(이동 등)에 대한 정보
+                position/rotation/scale : 3대 transform
+
+        장면 리로드 
+        using UnityEngine.SceneManagement;
+            SceneManager.LoadScene("씬 이름")
+
+        
+        화면에 글자 띄우기
+
+            void OnGUI() 함수
+
+            GUI.Label(new Rect(Screen.width / 2 - 30, 80, 100, 20), "Success!!!");
+
+                GUI.Label(new Rect(좌측하단시작점의 float x, flaot y, float 넓이, float 높이), "내용");
+
+        랜덤 값 받아오기
+
+             this.transform.position = new Vector3(Random.Range(5.0f, 10.0f), Random.Range(-3.0f, 1.0f), 0.0f);
+             
+             이 물체의 위치를 재설정. Random.Range(시작범위, 끝범위(float))
+
+
+
+    10장 내용
+
+        화면 비율 변경은 Game 탭에서
+        스크립트로 동시에 제어하려면 두 이름을 조건에 넣거나, 아니면 두 객체의 이름을 같게 설정하거나.
+
+
+
+        키 입력
+
+            Input.GetButtonDown("Jump")
+
+            -> 스페이스 바가 눌린 순간
+
+
+        가속도 운동
+
+            Update 문 안에.
+            GetComponet<Rigidbody>().velocity = new Vector3(0, y축으로 가하는-점프하려는 힘, 0);
+
+
+        등속 이동
+
+            Update 문 안에.   
+            transform.Translate( 속도 * Time.deltaTime, 0 , 0);
+
+        프리팹
+            계층구조Hierachy 탭에서 오브젝트를 프로젝트 탭에 넣은 뒤,
+            이름을 pf_이름 으로 변경. 후 다시 계층 구조 탭으로 드래그.
+            원본 삭제하면 됨.
+
+            일정 시간 지난 뒤 삭제시키려면 연결된 스크립트의 start에,
+                Destroy(GameObject, 시간)
+
+
+        spawn
+
+            IEnumerator Start() 안에.
+                -> 해당 함수의 쓰레드를 생성하여 별도로 동작시킴.
+                
+                코루틴. 비동기에 쓰임. 엔진과 협동.
+                반환하는 것에 따라 달려있다.
+
+                여기서는 
+                yeild return new WaitForSEconds(interval);
+                을 반환하였다. 즉, interval 시작하여 해당 함수를 실행한 뒤 interval만큼
+                대기하라는 뜻이다. 이후 함수를 재호출한다. 그러기 위해 쓰레드가 필요하다.
+
+            Instantiate(pf_wall, transform.position, transform.rotation);
+                생성함, pf_wall을, 해당 위치와 각도로.
+
+        
+        중력 조절하기
+
+            Edit -> Project Settings -> Physics 
+            Gravity -Y 수치를 변경한다.
+
+
+    11장. Terrain 지형
+
+        높이맵 Heightmaps
+
+            그레이스케일 0-255 맵(8bit)으로 표현. 0이면 낮고, 255면 높다.
+
+
+        브러쉬 툴.
+            Raise of Lower Terrain : 높낮이 조절
+                -Burshes : 모양
+                -Bursh Size 크기
+                -Opacity : 강도
+
+                -> 낮출 때는 Shift 누르기
+
+            Paint Texture : 텍스쳐 브러시
+            Set Height : 높이를 특정 값으로 조정
+            Smooth Height : 매끄럽게 조정
+            Stamp Terrain : 브러시 모양 도장
+
+        스카이박스
+
+            가상의 환경을 Box로 감쌈. 하늘, 우주 등 배경
+            Material을 설정하여 애셋의 Material을 적용하고,
+
+            Assets -> mSkybox -> Inspector 메뉴에서 6slided 적용(6면 텍스쳐 = CUBE맵)
+            Front Back L R U D 6면
+
+            적용은 Window Rendering Lightning 의 Enviroment에서 skybox marerial을 변경.
+
+
+        FPSController
+
+            First Person Setup
+
+            사용법. 애셋의 프리팹을 계층구조탭에 드래그.
+            높이등 적당히 연결해서 조정할 것.
+
+        Plane Tecture
+            Mesh에 적용
+
+
+    12장. 다트게임
+
+        지형
+            텍스쳐 커스텀.
+            페인트 텍스쳐 edit Terrain Layers에서 Create Layers
+
+
+        나무 심기
+            Tree Density 밀도
+            Tree Height 높이
+            Lock width to Height : 너비 높이 비 유지
+            Random Tree Rotation : 무작위 회전을
+    
+        스카이박스를 6 Sided가 아니라 Panoramic으로 변경?
+            ->퀄리티 떨어짐
+            이미지를 양끝에서 이어붙임
+
+        FBX
+
+            프로그램간 높은 수준의 상호 운용성을 작성하는 3D 데이터 전송용 오픈 프레임워크
+
+   
+        isKinematic
+
+            Rigidbody의 구성 요소.
+            물리엔진의 영향을 받지 않게 됨(*충돌 여부는 계속 체크함)
+
+
+        좌표계
+             월드 vs 스크린
+
+             월드는 중앙이 중심
+             스크린은 좌측 하단이 중심
+
+        파티클 재생 
+        GetComponet<ParticleSystem>().Play();
+
+        제곱근 = Mathf.Sqrt(distance);
+
+    13장. 파티클과 포인트 스프라이트
+
+        파티클 = 매우 작은 물체. 포인트로 모델링 됨.
+        포인트 스프라이트 = 텍스쳐로 매핑되면 크기 조절 가능함.
+        메모리와 프로세싱 시간을 절약 가능. 빌보드를 대체하였다.
+
+
+        해당 장소에서 소리 재생
+
+            AuditoSource.PlayClipAtPoint(AudioClip 변수, 위치)
+
+        리지드바디 충돌 체크
+         OnTriggerEnter (Colider other) 밑에.
+
+         특정 물체를 따라오게 하려면?
+            Update안에
+            transform.LookAt(target);
